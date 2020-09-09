@@ -14,23 +14,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 public class HelloControllerTest {
 
-    private MockMvc mockMvc;
+    private MockMvc mymockMvc;
 
     @Before
     public void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(new HelloController())
+        mymockMvc = MockMvcBuilders.standaloneSetup(new HelloController())
                 .build();
     }
 
     @Test
     public void renderHelloView_ShouldReturnResponseStatusOk() throws Exception {
-        mockMvc.perform(get("/"))
+        mymockMvc.perform(get("/"))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void renderHelloView_ShouldRenderHelloPage() throws Exception {
-        mockMvc.perform(get("/"))
+        mymockMvc.perform(get("/"))
                 .andExpect(view().name("index"));
     }
 }
